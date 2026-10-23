@@ -1,0 +1,13 @@
+{
+  "id": "e11",
+  "slug": "order-profit-reconciler",
+  "name": "多平台订单利润对账",
+  "version": "0.1.0",
+  "repo": "campfire-code/order-profit-reconciler",
+  "license": "MIT",
+  "ui": {
+    "layout": "a",
+    "palette": "teal"
+  },
+  "upstream": null
+}

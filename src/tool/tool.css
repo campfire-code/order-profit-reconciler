@@ -1,0 +1,65 @@
+/* 多平台订单利润对账：布局 c（向导步骤 + 大卡片）。只用 kit.css 的变量，类名以 pr- 开头。
+   焦点：每个订单表的实收大字，加一根「佣金、退款、运费」分段条。 */
+
+/* ---- 空状态 ---- */
+.pr-empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 8px 4px 4px; text-align: center; }
+.pr-empty > svg { width: 100%; max-width: 680px; height: auto; }
+.pr-card { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.4; }
+.pr-card.hot { stroke: var(--primary); }
+.pr-bar { fill: var(--primary); }
+.pr-top { fill: var(--primary-soft); }
+.pr-tt { font-size: 11.5px; font-weight: 700; fill: var(--ink); font-family: var(--font); }
+.pr-k { font-size: 10px; fill: var(--muted); font-family: var(--font); }
+.pr-arrow { fill: none; stroke: var(--primary); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.pr-step { fill: var(--primary-soft); stroke: var(--primary); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.pr-fk { font-size: 12px; fill: var(--ink); font-family: var(--font); }
+.pr-fk.strong { font-weight: 700; font-size: 13px; }
+.pr-fv { font-size: 12px; fill: var(--ink); font-family: var(--font); font-variant-numeric: tabular-nums; font-weight: 600; }
+.pr-fv.neg { fill: var(--muted); font-weight: 400; }
+.pr-sum { stroke: var(--ink); stroke-width: 1.2; }
+.pr-big { font-size: 28px; font-weight: 800; fill: var(--ink); font-family: var(--font); font-variant-numeric: tabular-nums; }
+.pr-pct { font-size: 11px; font-weight: 700; fill: var(--ok); font-family: var(--font); }
+.pr-ct { font-size: 10.5px; fill: var(--ink); font-family: var(--font); font-variant-numeric: tabular-nums; }
+.pr-track { fill: var(--chip); }
+.pr-fill { fill: var(--primary); }
+.pr-warn { fill: var(--warn-soft); }
+.pr-wt { font-size: 10px; fill: var(--warn); font-family: var(--font); font-weight: 600; }
+.pr-cap { font-size: 11.5px; fill: var(--muted); font-family: var(--font); }
+.pr-title { font-size: 1.3em; font-weight: 700; color: var(--ink); margin-top: 4px; }
+.pr-act { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--primary-soft); color: var(--ink); font-weight: 600; text-align: left; line-height: 1.4; }
+.pr-act svg { flex: none; color: var(--primary); }
+
+/* ---- 结果卡片 ---- */
+.c-card .k-cards { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.c-card .k-card-body { padding: 14px 16px 10px; }
+.c-card .k-card-meta { border-top: 1px solid var(--line); padding: 8px 16px 10px; }
+.pr-sub { color: var(--muted); }
+.pr-body { display: grid; gap: 10px; }
+.pr-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pr-tag { display: inline-flex; align-items: center; gap: 5px; padding: 2px 10px; border-radius: 999px; font-weight: 700; background: var(--primary-soft); color: var(--ink); }
+.pr-tag svg { color: var(--primary); }
+.pr-tag.cost { background: var(--warn-soft); }
+.pr-tag.cost svg { color: var(--warn); }
+.pr-count { margin-left: auto; color: var(--muted); white-space: nowrap; }
+.pr-count b { color: var(--ink); font-size: 1.1em; }
+.pr-income { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.pr-income span { color: var(--muted); white-space: nowrap; }
+.pr-income b { font-size: 30px; line-height: 1.1; color: var(--ink); font-weight: 800; }
+.pr-split { display: flex; height: 12px; border-radius: 6px; overflow: hidden; gap: 2px; background: var(--chip); }
+.pr-split i { display: block; min-width: 4px; transition: flex 200ms var(--ease); }
+.pr-split .c1 { background: var(--primary); }
+.pr-split .c2 { background: var(--err); }
+.pr-split .c3 { background: var(--warn); }
+.pr-split .rest { background: var(--ok); }
+.pr-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.pr-legend li { display: flex; justify-content: space-between; gap: 10px; padding-left: 14px; position: relative; font-size: 13px; }
+.pr-legend li::before { content: ''; position: absolute; left: 0; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 2px; background: var(--line-strong); }
+.pr-legend .c1::before { background: var(--primary); }
+.pr-legend .c2::before { background: var(--err); }
+.pr-legend .c3::before { background: var(--warn); }
+.pr-legend .rest::before { background: var(--ok); }
+.pr-legend span { color: var(--muted); }
+.pr-legend b { color: var(--ink); font-weight: 600; }
+.pr-legend .rest b { font-weight: 800; }
+.pr-note { color: var(--warn); font-size: 13px; }
+.pr-how { color: var(--muted); font-size: 13px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }

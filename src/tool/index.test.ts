@@ -58,7 +58,7 @@ describe('示例文件完整流程', () => {
     expect(src[2][9]).toBe(118.75);
     expect(src[3].slice(0, 2)).toEqual(['合计', 8]);
     const prod = sheets[2].grid;
-    expect(prod[1].slice(0, 2)).toEqual(['BW-500', '保温杯 500ml']); // 按利润从高到低
+    expect(prod[1].slice(0, 2)).toEqual(['1001', '保温杯 500毫升']); // 按利润从高到低
     expect(prod[1][10]).toBe(96.6);
   });
 

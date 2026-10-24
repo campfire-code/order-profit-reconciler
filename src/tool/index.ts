@@ -6,6 +6,8 @@ import {
   safeName, summarize, total, yuan, type Cell, type CostTable, type FieldKey, type OrderLine, type ProfitLine, type Summary,
 } from './core';
 import { readSheets, writeXlsx, type ColFmt, type OutSheet } from './xlsx';
+import { Empty } from './Empty';
+import { ResultBody } from './Result';
 
 type Data = { kind: 'cost'; table: CostTable; file: string; how: string } | { kind: 'orders'; lines: OrderLine[]; file: string; how: string };
 
@@ -98,6 +100,8 @@ const tool: BatchTool = {
   type: 'data',
   mode: 'batch',
   resultView: 'list',
+  Empty,
+  ResultBody,
   concurrency: 1,
   accept: { label: '订单表和成本表', extensions: ['xlsx', 'csv', 'xls'] },
   params: [
